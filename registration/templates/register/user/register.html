@@ -1,0 +1,71 @@
+{% extends "static/form_base.html" %} 
+{% load register_extras %} {% load staticfiles %} {% load i18n %}
+{% block title %}{% trans "User Registration" %}{% endblock title %} 
+{% block header_title %}
+<i class='fa fa-user'></i> {% trans "User Registration" %}
+{% endblock header_title %}
+{% block script_extra %}
+<script src="{% static 'js/user_registration_form_validator.js' %}"></script>
+{% endblock script_extra %}
+{% block body %}
+<form class="form-horizontal" id="registerForm" method="POST" 
+    enctype="multipart/form-data" action="{% url 'register_user' %}">
+    <fieldset>
+        {% csrf_token %} {% load tz %} 
+        {% for field in form.visible_fields %}
+        <div id="div_{{ field.html_name }}" 
+            class="form-group{% if field.errors %} has-error{% endif%}">
+            <label class="col-sm-4 control-label" for="{{ field.id_for_label }}">
+                {{ field.label }}
+            </label>
+            <div class="col-sm-4">
+                {% if field.name == "id_scanned" %}
+                <input id="input-id" type="file" class="file" name="id_scanned" 
+                data-preview-file-type="text" data-show-upload="false">
+                {% else %}
+                {{ field|addcss:"form-control" }}
+                {% endif %}
+                <div class="text-muted pull-right">
+                    <small>{{ field.help_text }}</small>
+                </div> <!-- form-group -->
+                <span class="help-block"> 
+                    {% for error in field.errors %} {{error }} {% endfor %} 
+                </span> <!-- help-block -->
+            </div> <!-- col-sm-4 -->
+        </div> <!-- div_{{field.html_name}} -->
+        {% endfor %} 
+        {% for hidden in user_form.hidden_fields %} {{ hidden }} {% endfor %}
+
+        <div class="col-sm-2"></div>
+        <div class="col-sm-8">
+            <div class="alert alert-danger">
+                <h3>Disclaimer</h3>
+                <ol>
+                    <li>All the information provided on this site are for
+                    educational purposes only. The site is no way responsible for any
+                    misuse of the information.
+                    </li>
+                    <li><a href="http://inctf.in" target="_blank">Junior.Inctf.in</a> is a
+                    site related to Computer Security and not a site that promotes
+                    cracking/software piracy. We expect our contest participants to
+                    comply with the same.
+                    </li>
+                    <li>All the information on this site are provided to promote
+                    secure coding practices among the student community. <a
+                        href="http://junior.inctf.in" target="_blank">Junior.Inctf.in</a> 
+                    insists that these information shall not be used for causing any 
+                    kind of damage directly or indirectly.
+                    </li>
+                </ol>
+            </div> <!-- alert alert-info -->
+        </div> <!-- col-sm-8 -->
+        <div class="col-sm-2"></div>
+
+        <div class="form-group">
+            <div class="col-sm-offset-5 col-sm-2">
+                <button type="submit" class="btn btn-primary btn-block">{% trans "Register" %}</button>
+            </div> <!-- col-sm-offset-6 -->
+        </div> <!-- form-group -->		
+    </fieldset>
+</form>
+{% endblock body %}

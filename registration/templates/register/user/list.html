@@ -1,0 +1,51 @@
+{% extends "static/base.html" %}
+{% load i18n %} {% load bootstrap_pagination %}
+{% block title %}{% trans "Registered User List" %}{% endblock %}
+{% block header_title %}
+<i class="fa fa-list-alt"></i> {% trans "Registered User List" %}
+{% endblock header_title %}
+{% block body %}
+<div class="row">
+    <div class="table-responsive">
+        <table class="table table-bordered table-condensed table-striped table-hover">
+            {% if object_list %}
+            <thead>
+                <tr>
+                    <th>{% trans "Name" %}</th>
+                    <th>{% trans "Email" %}</th>
+                    <th>{% trans "Place" %}</th>
+                    <th>{% trans "Standard" %}</th>
+                    <th>{% trans "School" %}</th>
+                    <th>{% trans "Approved" %}</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for student in object_list %}
+            <tr>
+                <td> {{ student.first_name }} {{ student.last_name }} </td>
+                <td> {{ student.email }} </td>
+                <td> {{ student.city }} </td>
+                <td> {{ student.standard }} </td>
+                <td> {{ student.school_name }} </td>
+                <td align="center"> 
+                    <p>
+                        {% if student.approved %}
+                        <i class="fa fa-check-circle"style="color:green"></i>
+                        {% else %}
+                        <i class="fa fa-times-circle" style="color:red"></i>
+                        {% endif %}
+                    </p>
+                </td>
+            </tr>
+            </tbody>
+            {% endfor %}
+            {% else %}
+            <h3> {% trans "No students have registered yet" %} </h3>
+            {% endif%}
+        </table>    
+    </div><!--table-responsive-->
+    {% if is_paginated %}
+    {% bootstrap_paginate page_obj %}
+    {% endif %}
+</div><!--row-->
+{% endblock %}

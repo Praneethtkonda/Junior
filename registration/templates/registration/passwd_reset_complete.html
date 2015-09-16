@@ -1,0 +1,17 @@
+{% extends "static/base.html" %}
+{% load i18n %}
+{% block title %}{% trans "Password Reset Completed" %}{% endblock %}
+{% block header_title %}
+<i class="fa fa-check"></i> {% trans "Password Reset Completed" %}
+{% endblock header_title %}
+{% block body %}
+<div class="page-header">
+    <h1>{% trans "Password Reset Completed!" %}</h1>
+</div><!--page-header-->
+<div class="row">
+    <div class="alert alert-success">
+        <p>{% trans "Your password has been set.  You may go ahead and log in now." %}</p>
+        <p><a href="{{ login_url }}">{% trans 'Log in' %}</a></p>
+        </div><!--alert alert-success-->
+</div><!--row-->
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends "static/base.html" %}
+{% load i18n %}
+{% block title %} {% trans "Team Registered successfully" %} {% endblock %}
+{% block header_title %}
+<i class="fa fa-check"></i> {% trans "Team Registration" %}
+{% endblock header_title %}
+{% block body %}
+<div class="page-header">
+    <h1>{% trans "Team Registered Successfully!" %}</h1>
+</div><!--page-header-->
+<div class="row">
+    <div class="alert alert-success">
+        Your team has been successfully Registered!
+	</div><!--alert alert-success-->
+</div><!--row-->
+{% endblock %}
+

@@ -1,0 +1,35 @@
+{% extends "static/base.html" %}
+{% load i18n %} {% load bootstrap_pagination %}
+{% block title %} {% trans "Registered Team List" %} {% endblock %}
+{% block header_title %}
+<i class="fa fa-list-alt"></i> {% trans "Registered Team List" %}
+{% endblock header_title %}
+{% block body %}
+<div class="row">
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped table-hover table-condensed">
+            {% if object_list %}
+            <thead>
+                <tr>
+                    <th>{% trans "Team Name" %}</th>
+                    <th>{% trans "Team School" %}</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for team in object_list %}
+            <tr>
+                <td> {{ team.team_name }} </td>
+                <td> {{ team.team_school }} </td>
+            </tr>
+            </tbody>
+            {% endfor %}
+            {% else %}
+            <h3> {% trans "No teams have registered yet" %}</h3>
+            {% endif%}
+        </table>    
+    </div><!--table-responsive-->
+    {% if is_paginated %}
+    {% bootstrap_paginate page_obj %}
+    {% endif %}
+</div><!--row-->
+{% endblock %}

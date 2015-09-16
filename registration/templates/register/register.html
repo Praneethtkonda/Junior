@@ -1,0 +1,27 @@
+{% extends "static/base.html" %}
+{% block title %} InCTFj Registration {% endblock %}
+{% block header_title %}
+<h2 class="wow fadeInDown">
+    <i class="fa fa-edit"></i> Registration
+</h2>
+{% endblock header_title %}
+{% block body %}
+<div class="page-header">
+    <a href="/register/user/" style="text-decoration: none"><h1><i class="fa fa-user"></i>User Registration </h1></a>
+</div> <!-- page-header -->
+<div class="alert alert-info"> 
+    <ul>
+        <li>Every team member must register separately as a user of the system </li>
+    </ul>
+</div> <!-- alert alert-info -->
+<div class="page-header">
+    <a href="/register/team" style="text-decoration: none"><h1><i class="fa fa-group"></i>Team Registration </h1></a>
+</div> <!-- page-header -->
+<div class="alert alert-info"> 
+    <ul>
+        <li>A team comprising of minimum 1 and maximum 2 members from <strong>the same school</strong>.</li>
+        <li>Each participant must provide their Email Address at the time of team registration</li>
+    </ul>
+</div> <!-- alert alert-info -->
+{% endblock %}
+

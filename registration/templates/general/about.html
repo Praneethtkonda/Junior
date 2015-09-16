@@ -1,0 +1,107 @@
+{% extends "static/base.html" %} {% load staticfiles %}
+{% block title %}About InCTF{% endblock %}
+{% block header_title %}
+<i class="fa fa-info-circle"></i> About InCTF
+{% endblock header_title %}
+{% block body %}
+<div class="page-header">
+    <h1>What is a Capture The Flag competition?</h1>
+</div> <!-- page-header -->
+<div class="well wow fadeInLeft">
+    <p style="text-align:justify">
+    A recent report has revealed that a miniscule 0.6% of graduate students are currently working 
+    in cyber security. These statistics strengthen the belief held by many industry experts that the 
+    cause of the skills gap originates from schools. In order to encourage the youth to participate, 
+    they need to be taught at a young age about the importance of cyber security and both its 
+    aspects ­ attack and defence, because if you do not know how to attack, then you will not 
+    know what to expect and you do not know how to defend. Several research efforts by 
+    computer security experts from across the world suggest that 
+    <a href="https://en.wikipedia.org/wiki/Capture_the_flag#Computer_security" target="_blank">Capture the Flag style contests</a> 
+    are a highly effective method to teach computer security. These contests typically simulate 
+    real life scenarios that enable participants to develop real world security skills. Through 
+    these contests, students learn how to defend their own systems and the programs on their 
+    systems while simultaneously trying to attack and bring down the same of their opponents. 
+    Many countries such as the United States of America and China have realized that cyber 
+    security preparedness is pivotal for a good position in terms of development on the global 
+    stage and have started conducting Capture The Flag contests for high school students to train 
+    them from a young age. An example is <a href="https://picoctf.com/" target="_blank">picoCTF</a> 
+    hosted exclusively for high school students in USA. This contest is organized by one of the top 
+    CTF teams from USA and is supported by several US government organizations such as 
+    <a href="http://www.nsf.gov/"  target="_blank">National Science Foundation</a>
+    </p>
+</div><!-- well -->
+<div class="page-header">
+    <h1>What is Junior InCTF?</h1>
+</div><!-- page-header -->
+<div class="well wow fadeInRight">
+    <p style="text-align:justify">
+    Having realized the dire need for such a training culture in India, 
+    <a href="https://www.amrita.edu/" target="_blank">Amrita University</a> is 
+    organizing Junior InCTF an online Capture the Flag style contest specifically designed to 
+    introduce cyber security awareness and training in high school students. It is a simplified 
+    version of <a href="http://inctf.in" target="_blank">InCTF</a>, Indian Capture The Flag, 
+    a national level ethical hacking contest that Amrita university hosts every year, for 
+    promoting cyber security awareness and training for college students in India. Now with 
+    Junior InCTF, we are pushing the boundaries of conventional wisdom by taking up students 
+    in 9th, 10th, Plus One and Plus two, and giving them career changing experience and exposure 
+    in a field filled with opportunities. Considering the ubiquitous nature of the field and 
+    the need for knowledge in cyber security a requirement in just about any profession, the 
+    contest will be useful to all students. 
+    </p>
+</div> <!-- well -->
+<div class="page-header">
+    <h1>How can I prepare for Junior InCTF?</h1>
+</div><!-- page-header -->
+<div class="well wow fadeInLeft">
+    <p style="text-align:justify">
+    <a href="{% static '/register/user' %}" target="_blank">Registration</a> for the contest can 
+    be done online from 16th of September at our website, 
+    <a href="http://junior.inctf.in" target="_blank">junior.inctf.in</a> and will be open till 
+    1st of November. There will be a set of challenges which 
+    the students need to solve during the course of the contest. All the necessary training material 
+    required to solve the challenges will also be provided to them. At the end of 2 months, the top 
+    performing 40 students will be short listed for a fully sponsored week long workshop aimed at 
+    further enhancing their cyber security skills. Attendees will be introduced to fundamental 
+    topics of computer security such as 
+    <a href="https://en.wikipedia.org/wiki/Computer_forensics" target="_blank">computer forensics</a>, 
+    <a href="https://en.wikipedia.org/wiki/Web_application_security" target="_blank">web application security</a>,
+    <a href="https://en.wikipedia.org/wiki/Cryptography" target="_blank">cryptography</a> and 
+    <a href="https://en.wikipedia.org/wiki/Python_(programming_language)" target="_blank">Python programming</a>.
+    During the course of the workshop, the winners of Junior InCTF will get a variety of 
+    prizes such as laptops, tablet computers, mobile phones, 
+    <a href="https://www.raspberrypi.org/" target="_blank">Raspberry Pis</a> and top computer 
+    security books. The university has already conducted 2 editions of the workshop in December 
+    2014 and May 2015 and plans to conduct more such workshops for school students in future
+    </p>
+</div><!-- page-header -->
+<div class="page-header">
+    <h1>What are the career opportunities?</h1>
+</div><!-- page-header -->
+<div class="well wow fadeInRight">
+    <p style="text-align:justify">
+    Developing skills in the area of cyber security opens up a whole new range of career 
+    opportunities for skilled graduates. Today graduates with expertise in cyber security are in 
+    great demand for the positions of security analysts in top private computer firms in India. Of 
+    course apart from the private computer firms the Electronic and Computer Science Division 
+    of <a href="http://www.drdo.gov.in/" target="_blank">DRDO</a> 
+    (Defence Research and Development Organization) which is the government wing 
+    that currently handles the national cyber security, is also in need of individuals with skills, 
+    agility and a fresh and updated outlook at cyber security. 
+    </p> 
+</div> <!-- well -->
+<div class="page-header">
+    <h1>Rules</h1>
+</div> <!-- page-header -->
+<h3>Play fair, have fun.</h3>
+<div class="well wow fadeInLeft">
+    <ul>
+        <li>Please do not attack any Junior InCTF infrastructure</li>
+        <li>Denial of service attacks on any challenge will not be tolerated and teams doing so will be disqualified.</li>
+        <li>A team is not allowed to give themselves or another team an unfair advantage.</li>
+        <li>A member of one team is not allowed to share answers with another team.</li>
+        <li>More than one uniquely named teams working together to secure multiple final round spots will not be tolerated.</li>
+        <li>Team Junior InCTF reserves the right to decide the teams who will qualify for the final round</li>
+        <li>The decision of the Team Junior  InCTF is the final</li>
+    </ul>
+</div><!-- well -->
+{% endblock body %}

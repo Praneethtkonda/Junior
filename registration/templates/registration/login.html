@@ -1,0 +1,71 @@
+{% extends "static/base.html" %}
+{% load i18n %}
+{% block title %}{% trans "User Login" %}{% endblock %}
+{% block header_title %}
+<i class="fa fa-sign-in"></i> {% trans "User Login" %}
+{% endblock header_title %}
+{% block body %}
+{% if user.is_authenticated %}
+<div class="alert alert-danger">
+    {% trans "You are authenticated as {{ request.user.username }}, but are not authorized to
+    access this page. Would you like to login to a different account?" %}
+</div> <!-- alert alert-danger -->
+{% endif %}
+<div class="col-sm-6 col-md-4 col-md-offset-4">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <strong> {% trans "Sign in to InCTFj" %}</strong>
+        </div> <!-- panel-heading -->
+        <div class="panel-body">
+            <form role="form" action="{% url 'login' %}" method="POST">
+            {% csrf_token %}
+                <fieldset>
+                    <div class="row">
+                        <div class="center-block profile-img">
+                            <span class="fa-stack fa-4x">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-user fa-stack-1x" style="color:#eee;"></i>
+                            </span>
+                        </div> <!-- center-block -->
+                    </div> <!-- row -->
+                    <div class="row">
+                        <div class="col-sm-12 col-md-10  col-md-offset-1 ">
+                            <div class="form-group {% if form.username.errors %}has-error{% endif %}">
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <i class="fa fa-envelope"></i>
+                                    </span> 
+                                    <input class="form-control" placeholder={% trans "Email Address" %} name="username" type="email" autofocus>
+                                </div> <!-- input-group -->
+                            </div> <!-- form-group -->
+                            <div class="form-group {% if form.password.errors %}has-error{% endif %}">
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <i class="fa fa-expeditedssl"></i>
+                                    </span>
+                                    <input class="form-control" placeholder={% trans "Password" %} name="password" type="password">
+                                    <input type="hidden" name="next" value="{{ next }}" />
+                                </div> <!-- input-group-addon -->
+                            </div> <!-- input-group -->
+                            {% if form.errors %}
+                            <div class="alert alert-danger">
+                                <i class="fa fa-warning"></i> {% trans "Your username and password didn't match. Please try again." %}
+                            </div> <!-- alert alert-danger -->
+                            {% endif %}
+                            <div class="form-group">
+                                <input type="submit" class="btn btn-lg btn-primary btn-block" value={% trans "Sign in" %}>
+                            </div> <!-- form-group -->
+                        </div> <!-- col-sm-12 col-md-10 -->
+                    </div> <!-- row -->
+                </fieldset>
+            </form>
+        </div> <!-- panel-body -->
+        <div class="panel-footer ">
+            {% trans "Don't have an account? " %}<a href="/register" onClick=""> {% trans "Sign Up Here" %} </a>
+            <div class="password-reset-link">
+                <a href="{% url 'password_reset' %}"> {% trans "Lost Password?" %}</a>
+            </div>
+        </div> <!-- panel footer -->
+    </div> <!-- panel -->
+</div> <!-- col-sm-6 col-md-4 col-md-offset-4 -->
+{% endblock %}

@@ -1,0 +1,345 @@
+{% extends "static/atom.html" %}
+{% load staticfiles %}{% load i18n %} 
+{% block title %}Welcome to Junior InCTF Website{% endblock title %}  
+{% block script %}
+<script src="{% static 'js/jquery.downCount.js' %}"></script>
+<script src="{% static 'js/jquery.singlePageNav.min.js' %}"></script>
+<script src="{% static 'js/bootstrapValidator.min.js' %}"></script>
+<script src="{% static 'js/contact_us_validator.js' %}"></script>
+<script src="{% static 'js/custom.js' %}"></script>
+<script type="text/javascript">
+$(document).ready(function() { 
+    $('.countdown').downCount({
+        date: '11/1/2015 5:30:00'
+    });
+});
+</script>
+{% endblock script %} 
+{% block content %} 
+{% block body %}
+<!-- start preloader -->
+<div class="preloader" id="preloader">
+    <img src="{% static 'images/Preloader.gif' %}" alt="Preloader"/>
+</div> <!-- preloader -->
+<!-- end preloader -->
+<!-- start home -->
+<section id="home">
+    <div class="overlay">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-10 wow fadeIn" data-wow-delay="0.3s">
+                    <h1><i class="fa fa-flag"></i> Junior InCTF</h1>
+                    <h3>India's First High School Hacking Competition</h3>
+                    <h4><i class="fa fa-calendar"></i> October 1 - November 30, 2015</h4>
+                    <img src="{% static 'images/hero.png' %}" class="img-responsive" alt="home img">
+
+                    <div class="row">
+                        <div class="col-md-3"></div>
+                        <div class="col-md-3">
+                            <a href={% url 'register_user' %} data-scroll target="_blank" class="btn btn-primary btn-block btn-lg raised" role="button">
+                                <i class="fa fa-user"></i> Register Now!
+                            </a>
+                        </div>
+                        <div class="col-md-3">
+                            <a href={% url 'about' %} data-scroll target="_blank" class="btn btn-primary btn-block btn-lg raised" role="button">
+                                Learn More <i class='fa fa-arrow-right'></i>
+                            </a>
+                        </div>
+                        <div class="col-md-3"></div>
+                    </div> <!-- row -->
+                </div> <!-- col-md-10 wow -->
+                <div class="col-md-1"></div>
+            </div> <!-- row -->
+        </div> <!-- container -->
+    </div> <!-- overlay -->
+</section> <!-- home -->
+<!-- end home -->
+
+<!-- start divider -->
+<section id="divider">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 wow fadeInUp templatemo-box"
+                data-wow-delay="0.3s">
+                <i class="fa fa-hand-pointer-o"></i>
+                <h3 class="text-uppercase">REGISTER</h3>
+                <p>Register as a user then as a team</p>
+            </div> <!-- col-md-4 wow -->
+            <div class="col-md-4 wow fadeInUp templatemo-box"
+                data-wow-delay="0.3s">
+                <i class="fa fa-laptop"></i>
+                <h3 class="text-uppercase">LEARN</h3>
+                <p>Learn the materials provided in this website</p>
+            </div> <!-- col-md-4 wow -->
+            <div class="col-md-4 wow fadeInUp templatemo-box"
+                data-wow-delay="0.3s">
+                <i class="fa fa-user-secret"></i>
+                <h3 class="text-uppercase">HACK</h3>
+                <p>Take part in the hacking competition</p>
+            </div> <!-- col-md-4 wow -->
+        </div> <!-- row -->
+    </div> <!-- container -->
+</section> <!-- divider -->
+<!-- end divider -->
+
+<!-- start feature -->
+<section id="feature">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 wow fadeInLeft" data-wow-delay="0.3s">
+                <div class="row">
+                    <h2 class="text-uppercase" style='text-align:center' data-wow-delay="0.3s">Student Requirements</h2>
+                    <div class="col-md-1">
+                        <span><i class="fa fa-check fa-2x"></i></span>
+                    </div> <!-- col-md-1 -->
+                    <div class="col-md-11">
+                        Any student studying in India
+                    </div> <!-- col-md-10 -->
+                </div> <!-- row -->
+                <br />
+                <div class="row">
+                    <div class="col-md-1">
+                        <span><i class="fa fa-check fa-2x"></i></span>
+                    </div> <!-- col-md-1 -->
+                    <div class="col-md-11">
+                        A photo or scanned copy of school ID card should be uploaded during  
+                        the user registration. 
+                    </div> <!-- col-md-11 -->
+                </div> <!-- row -->
+                <br />
+                <div class="row">
+                    <div class="col-md-1">
+                        <span><i class="fa fa-check fa-2x"></i></span>
+                    </div> <!-- col-md-1 -->
+                    <div class="col-md-11">
+                        A student can participate in the contest only after the verification 
+                        of the uploaded ID card by the organizers of the contest. 
+                    </div> <!-- col-md-11 -->
+                </div> <!-- row -->
+                <br />
+                <div class="row">
+                    <div class="col-md-1">
+                        <span><i class="fa fa-check fa-2x"></i></span>
+                    </div> <!-- col-md-1 -->
+                    <div class="col-md-11">
+                        Once the ID card is approved by organizers, student profile will get 
+                        verified <i class="fa fa-check-circle" style="color:green"></i>.				
+                    </div> <!-- col-md-11 -->
+                </div> <!-- row -->
+                <div class="row">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-6">
+                        <a href="{% url 'register_user' %}" class="btn btn-primary btn-lg btn-block raised">
+                            <i class='fa fa-user'></i> User Registration
+                        </a>
+                    </div> <!-- col-md-6 -->
+                    <div class="col-md-3"></div>
+                </div> <!-- row -->
+            </div> <!-- col-md-6 -->
+            <div class="col-md-6 wow fadeInRight" data-wow-delay="0.3s">
+                <img src="{% static 'images/user_registration.png' %}" class="img-responsive"
+                alt="feature img">
+            </div> <!-- col-md-6 -->
+        </div> <!-- row -->
+    </div> <!-- container -->
+</section> <!-- feature -->
+<!-- end feature -->
+
+<!-- start feature1 -->
+<section id="feature1">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                <img src="{% static 'images/team_registration.png' %}" class="img-responsive"
+                alt="feature img">
+            </div>
+            <div class="col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                <h2 class="text-uppercase"  style='text-align:center' data-wow-delay="0.3s">Team Requirements</h2>
+                <div class="row">
+                    <div class="col-md-1">
+                        <span><i class="fa fa-check fa-2x"></i></span>
+                    </div> <!-- col-md-1 -->
+                    <div class="col-md-11">
+                        Atmost two verified <i class="fa fa-check-circle" style="color:green"></i> 
+                        students are allowed to form a team to participate in the contest.
+                    </div> <!-- col-md-11 -->
+                </div> <!-- row -->
+                <br/>
+                <div class="row">
+                    <div class="col-md-1">
+                        <span><i class="fa fa-check fa-2x"></i></span>
+                    </div> <!-- col-md-1 -->
+                    <div class="col-md-11">
+                        Students in a team must belong to the same school. 
+                        Even a single student team can participate.
+                    </div> <!-- col-md-11 -->
+                </div> <!-- row -->
+                <br/>
+                <div class="row">
+                    <div class="col-md-1">
+                        <span><i class="fa fa-check fa-2x"></i></span>
+                    </div> <!-- col-md-1 -->
+                    <div class="col-md-11">
+                        A team should have a mentor (teacher/guide/principal) from the same school.
+                    </div> <!-- col-md-11 -->
+                </div> <!-- row -->
+                <div class="row">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-6">
+                        <a href="{% url 'register_team' %}" class="btn btn-primary btn-lg btn-block raised">
+                            <i class='fa fa-group'></i> Team Registration
+                        </a>
+                    </div> <!-- col-md-6 -->
+                    <div class="col-md-3"></div>
+                </div> <!-- row -->
+            </div> <!-- col-md-6 wow --> 
+        </div> <!-- row -->
+    </div> <!-- container -->
+</section> <!-- feature1 -->
+<!-- end feature1 -->
+
+<!-- start pricing -->
+<section id="feature">
+    <h2 class="text-uppercase wow bounceIn animated" style='text-align:center' data-wow-delay="0.3s">Registration will close in</h2>
+    <ul class="countdown wow fadeInUp" data-wow-delay="0.3s">
+        <li>
+        <span class="days">00</span>
+        <p class="days_ref">days</p>
+        </li>
+        <li>
+        <span class="hours">00</span>
+        <p class="hours_ref">hours</p>
+        </li>
+        <li>
+        <span class="minutes">00</span>
+        <p class="minutes_ref">minutes</p>
+        </li>
+        <li>
+        <span class="seconds last">00</span>
+        <p class="seconds_ref">seconds</p>
+        </li>
+    </ul>
+    <div class="container">
+        <h2 class="text-uppercase wow bounceIn animated" style='text-align:center'>Contest duration: 2 Months</h2>
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-3 wow fadeInLeft" data-wow-delay="0.3s"> 
+                <img class="img-responsive" src="{% static 'images/Oct1.png' %}">
+            </div> <!-- col-md-6 -->
+            <div class="col-md-3 wow fadeInRight" data-wow-delay="0.3s"> 
+                <img class="img-responsive" src="{% static 'images/Nov30.png' %}">
+            </div> <!-- col-md-6 -->
+            <div class="col-md-3"></div>
+        </div> <!-- row -->
+    </div> <!-- container -->
+</section>
+<!-- end pricing -->
+
+<section id="divider1">
+    <div class="container">
+        <div class="row">
+            <h2 class="text-uppercase wow bounceIn animated" style='text-align:center'>Cool Prizes</h2>
+            <div class="row wow fadeInLeft" data-wow-delay="0.3s">
+                <div class="col-md-4">
+                    <i class="fa fa-laptop"></i>
+                    <h3 style='text-align:center'>Laptop</h3>
+                </div> <!-- col-md- 4 -->
+                <div class="col-md-4">
+                    <i class="fa fa-tripadvisor"></i>
+                    <h3 style='text-align:center'>Drone</h3>
+                </div> <!-- col-md- 4 -->
+                <div class="col-md-4">
+                    <i class="fa fa-tablet"></i>
+                    <h3 style='text-align:center'>Tablets</h3>
+                </div> <!-- col-md- 4 -->
+            </div> <!--row -->
+            <div class="row wow fadeInRight" data-wow-delay="0.3s">
+                <div class="col-md-4">
+                    <i class="fa fa-slideshare"></i>
+                    <h3 style='text-align:center'>Raspberry Pis</h3>
+                </div> <!-- col-md- 4 -->
+                <div class="col-md-4">
+                    <i class="fa fa-book"></i>
+                    <h3 style='text-align:center'>Books</h3>
+                </div> <!-- col-md- 4 -->
+                <div class="col-md-4">
+                    <i class="fa fa-gift"></i>
+                    <h3 style='text-align:center'>Gifts</h3>
+                </div> <!-- col-md- 4 -->
+            </div> <!--row -->
+        </div> <!-- row -->
+    </div> <!-- container -->
+</section>
+<!-- start contact -->
+<section id="contact">
+    <div class="overlay">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <h2 class="text-uppercase">Contact Us</h2>
+                    <p>We would like to hear your queries and feedback.</p>
+                    <address>
+                        <p>
+                        <i class="fa fa-map-marker"></i>
+                        Amrita Center for Cyber Security, Kollam, Kerala.
+                        </p>
+                        <p>
+                        <i class="fa fa-phone"></i> 0476 2804525
+                        </p>
+                        <p>	
+                        <i class="fa fa-envelope-o"></i> contact@inctf.in
+                        </p>		 	
+                    </address>				
+                </div> <!-- col-md-6 -->
+                <div class="col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="contact-form">
+                        <form action="{% url 'contact_form' %}" method="post" id="contactForm"
+                            enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" name="name" placeholder="Name">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="email" class="form-control" name="email" placeholder="Email">
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Subject" name="subject">
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <textarea class="form-control" placeholder="Message" name="body" rows="4"></textarea>
+                                </div>
+                            </div>	
+                            <div class="col-md-12"> <!--Captica and submit button goes in single row-->
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <script src='https://www.google.com/recaptcha/api.js'></script>
+                                        <div class="g-recaptcha" data-sitekey="6LdbfwwTAAAAALo-K7eTHeg8V3Uizpm--XIhmCy4"></div>
+                                    </div>
+                                    {% ifequal captcha 'false' %}
+                                    <div class="alert alert-danger">
+                                        Incorrect Captcha
+                                    </div> <!--error-msg has-error-->
+                                    {% endifequal %}
+                                </div> <!-- form-group-->
+                            </div> <!--row -->
+                            <div class="col-md-8">
+                                <input type="submit" class="form-control text-uppercase" value="Send">
+                            </div>
+                        </form>
+                    </div> <!-- contact-form -->
+                </div> <!-- col-md-6 -->
+            </div> <!-- row -->
+        </div> <!-- container -->
+    </div> <!-- overlay -->
+</section>
+<!-- end contact -->
+{% endblock body %} 
+{% endblock content %}

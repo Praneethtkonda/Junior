@@ -1,0 +1,18 @@
+{% extends "static/base.html" %}
+{% load i18n %}
+{% block title %}{% trans "User Registered successfully" %}{% endblock %}
+{% block header_title %}
+<i class="fa fa-check"></i> {% trans "User Registered" %}
+{% endblock header_title %}
+{% block body %}
+<div class="page-header">
+    <h1>{% trans "User Registered Successfully!" %}</h1>
+</div><!--page-header-->
+<div class="row">
+    <div class="alert alert-success">
+        Your account is under moderation, you will receive an email upon the verification of
+        of your registration details by the managers of the contest. Thank you!
+	</div><!--alert alert-success-->
+</div><!--row-->
+{% endblock %}
+

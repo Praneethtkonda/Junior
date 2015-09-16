@@ -1,0 +1,40 @@
+{% extends "static/form_base.html" %} 
+{% load staticfiles %} {% load i18n %}
+{% block title %}{% trans "Contact US" %}{% endblock title %} {% load register_extras %}
+{% block header_title %}
+<i class="fa fa-envelope"></i> {% trans "Contact US" %}
+{% endblock header_title %} 
+{% block script_extra %}
+<script src="{% static 'js/contact_us_validator.js' %}"></script>
+{{ form.media }}
+{%endblock script_extra %} 
+{% block body %}
+<form class="form-horizontal" id="contactForm" method="POST" action="{% url 'contact_form' %}">
+    <fieldset>
+        {% csrf_token %} {% load tz %} 
+        {% for field in form.visible_fields %}
+        <div id="div_{{ field.html_name }}" 
+            class="form-group{% if field.errors %} has-error{% endif%}">
+            <label class="col-sm-4 control-label" for="{{ field.id_for_label }}">
+                {{ field.label }}
+            </label>
+            <div class="col-sm-4">
+                {{ field|addcss:"form-control" }}
+                <div class="text-muted pull-right">
+                    <small>{{ field.help_text }}</small>
+                </div> <!-- form-group -->
+                <span class="help-block"> 
+                    {% for error in field.errors %} {{error }} {% endfor %} 
+                </span> <!-- help-block -->
+            </div> <!-- col-sm-4 -->
+        </div> <!-- div_{{field.html_name}} -->
+        {% endfor %} 
+        {% for hidden in user_form.hidden_fields %} {{ hidden }} {% endfor %}
+        <div class="form-group">
+            <div class="col-sm-offset-5 col-sm-2">
+                <button type="submit" class="btn btn-primary btn-block">{% trans "Send" %}</button>
+            </div> <!-- col-sm-offset-6 -->
+        </div> <!-- form-group -->		
+    </fieldset>
+</form>
+{% endblock body %}

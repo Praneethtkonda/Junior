@@ -1,0 +1,20 @@
+{% extends "static/base.html" %}
+{% load i18n %}
+{% block title %} {% trans "Password reset successful" %}{% endblock %}
+{% block header_title %}
+<h2 class="wow fadeInDown" data-wow-delay="0.3s">
+    <i class="fa fa-check"></i> {% trans "Password reset" %}
+</h2>
+{% endblock header_title %}
+{% block body %}
+<div class="page-header">
+    <h1> {% trans "Password reset mail sent!" %}</h1>
+</div><!--page-header-->
+<div class="row">
+    <div class="alert alert-success">
+        <p>{% trans "We've e-mailed you instructions for setting your password to the e-mail address you submitted" %}</p>
+        <p>{% trans "You should be receiving it shortly." %}</p>
+	</div><!--alert alert-success-->
+</div><!--row-->
+{% endblock %}
+

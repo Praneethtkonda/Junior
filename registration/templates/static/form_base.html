@@ -1,0 +1,31 @@
+{% extends "static/atom.html" %}
+{% load staticfiles %}
+<!-- HEADER -->
+{% block header %}
+<div id="masthead">  
+    <div class="container">
+            <h2 class="wow fadeInDown">
+            {% block header_title %}
+            {% endblock header_title %}
+            </h2>
+    </div><!-- container -->
+</div><!--masthead-->
+{% endblock header %}
+<!-- END OF HEADER -->
+{% block style_extra %}
+<link type="text/css" href="{% static 'css/fileinput.min.css' %}" rel="stylesheet" />
+<link type="text/css" href="{% static 'css/bootstrapValidator.min.css' %}" rel="stylesheet"/>
+{% endblock style_extra %}
+{% block script %}
+<script src="{% static 'js/fileinput.js' %}"></script>
+<script src="{% static 'js/bootstrapValidator.min.js' %}"></script>
+{{ form.media }}
+{% block script_extra %}
+{% endblock script_extra %}
+{% endblock script %}
+{% block content %}
+<div id="content-col" class="container">
+    {% block body %} {% endblock %}
+</div><!-- container-->
+<div class="push"></div>
+{% endblock content %}

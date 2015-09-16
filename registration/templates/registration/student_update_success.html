@@ -1,0 +1,17 @@
+{% extends "static/base.html" %}
+{% load i18n %}
+{% block title %}{% trans "Profile Updated successfully" %}{% endblock %}
+{% block header_title %}
+<i class="fa fa-check"></i> {% trans "Profile Updated" %}
+{% endblock header_title %}
+{% block body %}
+<div class="page-header">
+    <h1>{% trans "User Profile Updated Successfully!" %}</h1>
+</div><!--page-header-->
+<div class="row">
+    <div class="alert alert-success">
+        Your profile has been updated!
+	</div><!--alert alert-success-->
+</div><!--row-->
+{% endblock %}
+

@@ -1,0 +1,58 @@
+{% extends "static/base.html" %}
+{% load i18n %}{% load staticfiles %}
+{% block title %}{% trans "User Profile" %}{% endblock %}
+{% block header_title %}
+<i class="fa fa-user"></i> {% trans "User Profile" %}
+{% endblock header_title %}
+{% block body %}
+<div class="page-header">
+    <h1> {{ student.first_name }} {% trans "'s Profile" %}</h1>
+</div><!--page-header-->
+<div class="well well-sm">
+    <div class="row">
+        <div class="col-sm-6 col-md-4">
+            {% if student.id_scanned %}
+            <img src='{{ student.id_scanned.url }}' alt="" class="img-thumbnail img-responsive" />
+            {% else %}
+            <img src="{% static 'id_scanned/sample.png' %}" class="img-thumbnail img-responsive" alt="">
+            {% endif %}
+        </div> <!-- col-sm-6 -->
+        <div class="col-sm-6 col-md-8">
+            <h4> 
+                {% if student.gender == 'M' %}
+                    <i class='fa fa-mars'></i>
+                {% else %}
+                    <i class='fa fa-venus'></i>
+                {% endif %}    
+                {{ student.first_name }} {{ student.last_name }}</h4>
+            <small>
+                <cite> {{ student.city }}, {{ student.state }} 
+                    <i class="fa fa-map-marker"></i>
+                </cite>
+            </small>
+            <br />
+            <code>@{{ student.username}}</code>
+            <p> 
+                <i class="fa fa-envelope"></i> <a href="{{ student.email }}" target="_blank">{{ student.email }} </a>
+                <br />
+                <i class="fa fa-birthday-cake"></i> {{ student.date_of_birth }}
+                <br />
+                <i class="fa fa-home"></i> {{ student.address }}, {{ student.city }}, {{ student.state }}, {{ student.pincode }}
+                <br />
+                <i class="fa fa-phone"></i> {{ student.contact_no }}
+                <br />
+                <i class="fa fa-graduation-cap"></i> {{ student.standard }}th standard
+                <br />
+                <i class="fa fa-university"></i> {{ student.school_name }}, {{ student.school_address }}
+                <br />
+                <i class="fa fa-thumbs-up"></i>
+                {% if student.approved %}
+                Approved <i class="fa fa-check-circle"style="color:green"></i>
+                {% else %}
+                Not Approved <i class="fa fa-times-circle" style="color:red"></i>
+                {% endif %} 
+            </p>
+        </div> <!-- col-md-6 -->
+    </div> <!-- row -->
+</div> <!-- well -->
+{% endblock %}
